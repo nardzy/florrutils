@@ -1,3 +1,4 @@
+
 class FlorrUtils {
 
     decoder = new TextDecoder;
@@ -100,18 +101,20 @@ class FlorrUtils {
     }
     /**
      * @param {number} base 
+     * @param {number} mob_rarity  
+     * @param {number} petal_rarity 
      * @returns {number} f32 number
      */
-    calculate_drop_chance(base) {
+    calculate_drop_chance(base, mob_rarity, petal_rarity) {
 
-        const f32_f64 = Module._Util_CalculateDropChance(base);
+        const f32_f64 = Module._Util_CalculateDropChance(base, mob_rarity, petal_rarity);
         return f32_f64;
 
     }
     // idk
-    get_assembler_matrix() {
+    get_assembler_matrix(x) {
 
-        const ptr = Module._Util_GetAssemblerMatrix();
+        const ptr = Module._Util_GetAssemblerMatrix(x);
         const str = this.pass_string(ptr);
 
         return str;
